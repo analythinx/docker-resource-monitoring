@@ -1,97 +1,122 @@
+
 ---
 
 # Monitoring Stack: Prometheus, Grafana, cAdvisor, Node Exporter
 
-This project provides a simple Docker Compose setup for system and container monitoring using Prometheus, Grafana, cAdvisor, and Node Exporter.
+This project provides a ready-to-use Docker Compose setup for system and container monitoring with **Prometheus**, **Grafana**, **cAdvisor**, and **Node Exporter**.
 
 ---
 
 ## Features
 
-- **Prometheus**: Collects metrics and triggers alerts.
-- **Grafana**: Visualizes metrics with dashboards.
-- **cAdvisor**: Tracks container resource usage.
-- **Node Exporter**: Gathers system-level metrics.
+- **Prometheus**: Collects metrics and provides powerful query capabilities.
+- **Grafana**: Creates customizable dashboards for data visualization.
+- **cAdvisor**: Monitors container resource usage (CPU, memory, disk, and network).
+- **Node Exporter**: Collects system-level metrics (CPU, memory, disk, and more).
 
 ---
 
-## Setup
+## Setup Instructions
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/username/monitoring-stack.git
-   cd monitoring-stack
-   ```
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/username/monitoring-stack.git
+cd monitoring-stack
+```
 
-2. Create required resources:
-   ```bash
-   docker volume create grafana-data
-   docker network create monitoring
-   ```
+### Step 2: Create Required Resources
+```bash
+docker volume create grafana-data
+docker network create monitoring
+```
 
-3. Start the stack:
-   ```bash
-   docker-compose up -d
-   ```
+### Step 3: Start the Stack
+```bash
+docker-compose up -d
+```
 
-4. Access the services:
-   - **Prometheus**: [http://localhost:9090](http://localhost:9090)
-   - **Grafana**: [http://localhost:3000](http://localhost:3000) (Default login: `admin` / `admin`)
-   - **cAdvisor**: [http://localhost:8080](http://localhost:8080)
-
----
-
-## Configuration
-
-- **Prometheus**: Modify `prometheus.yml` to add or update targets.
-- **Grafana**: Data is stored in the `grafana-data` volume.
-- **cAdvisor**: Exposes metrics on port `8080`.
-- **Node Exporter**: Exposes system metrics on port `9100`.
+### Step 4: Access the Services
+- **Prometheus**: [http://localhost:9090](http://localhost:9090)
+- **Grafana**: [http://localhost:3000](http://localhost:3000)  
+  *(Default login: `admin` / `admin`)*
+- **cAdvisor**: [http://localhost:8080](http://localhost:8080)
+- **Node Exporter**: Metrics exposed at [http://localhost:9100/metrics](http://localhost:9100/metrics)
 
 ---
 
-## Stopping the Stack
+## Configuration Details
 
-To stop and remove all services:
+### Prometheus
+- Edit the `prometheus.yml` file to customize scrape targets and alert rules.
+
+### Grafana
+- Persistent data is stored in the `grafana-data` Docker volume.
+
+### cAdvisor
+- Accessible on port `8080` for monitoring container-level metrics.
+
+### Node Exporter
+- Exposes metrics on port `9100` for monitoring system-level metrics.
+
+---
+
+## Managing the Stack
+
+### Stop and Remove Services
+To stop and remove all services, use:
 ```bash
 docker-compose down
 ```
 
-## Adding Prometheus as a Data Source in Grafana
+---
 
-1. Open your browser and go to [http://localhost:3000](http://localhost:3000).
-2. Log in with the default credentials:
+## Setting Up Grafana with Prometheus
+
+1. Access Grafana at [http://localhost:3000](http://localhost:3000).
+2. Log in with default credentials:
    - Username: `admin`
    - Password: `admin`  
-   (You will be prompted to change the password on first login.)
-3. In the left menu, go to **Configuration** > **Data Sources**.
-4. Click **Add data source** and select **Prometheus** from the list.
-5. Under the **HTTP** section, set the **URL** to `http://prometheus:9090`.
-6. Click **Save & Test**. You should see a "Data source is working" message.
+     *(You will be prompted to change the password after the first login.)*
+3. Navigate to **Configuration** > **Data Sources** from the left menu.
+4. Click **Add data source** and choose **Prometheus**.
+5. Set the **URL** to `http://prometheus:9090` in the **HTTP** section.
+6. Click **Save & Test**.  
+   You should see a success message: *"Data source is working."*
 
 ---
 
-## Importing a Dashboard into Grafana
+## Importing Dashboards into Grafana
 
-Grafana provides a wide variety of dashboards for visualizing metrics. You can either create a custom dashboard or import a prebuilt one from the Grafana dashboard library.
+Grafana offers a wide range of prebuilt dashboards for system and container monitoring.
 
-### Option 1: Explore and Import a Prebuilt Dashboard
-
+### Option 1: Use a Prebuilt Dashboard from Grafana's Library
 1. Visit the [Grafana Dashboard Library](https://grafana.com/grafana/dashboards).
-2. Search for a dashboard that suits your needs. For example:
+2. Search for a relevant dashboard:
    - **Docker and System Monitoring** (ID: `12280`)
    - **Node Exporter Full** (ID: `1860`)
 3. Note the dashboard ID of your choice.
 
-### Option 2: Import the Dashboard into Grafana
-
-1. In Grafana, navigate to **Create** > **Import** from the left menu.
-2. Enter the dashboard ID from Grafana's library into the **Import via grafana.com** field and click **Load**.
-3. Select your **Prometheus** data source and click **Import**.
+### Option 2: Import a Dashboard into Grafana
+1. In Grafana, go to **Create** > **Import**.
+2. Enter the dashboard ID in the **Import via grafana.com** field and click **Load**.
+3. Choose your **Prometheus** data source and click **Import**.
 
 ---
 
-## Customizing the Dashboard
+## Customizing Dashboards
 
-Once imported, the dashboard will display real-time metrics for your system and containers. If some panels do not show data, check and update their queries to match your setup.
+After importing, dashboards will display real-time metrics for your setup.  
+If certain panels do not populate, review their query configurations to ensure they align with your setup.
+
 ---
+
+## Troubleshooting
+
+- Ensure Docker services are running.
+- Verify that all services are reachable at their respective ports.
+- Check log files for errors using:
+  ```bash
+  docker-compose logs
+  ```
+
+--- 

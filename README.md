@@ -1,6 +1,4 @@
-
----![1_OWrLfQ7fh0jEtPQX2OLMIA](https://github.com/user-attachments/assets/f09d780f-8d5c-46c2-b619-5acaea5bbdfd)
-
+---
 
 # Monitoring Stack: Prometheus, Grafana, cAdvisor, Node Exporter
 
@@ -15,6 +13,7 @@ This project provides a ready-to-use Docker Compose setup for system and contain
 - **cAdvisor**: Monitors container resource usage (CPU, memory, disk, and network).
 - **Node Exporter**: Collects system-level metrics (CPU, memory, disk, and more).
 
+![1_OWrLfQ7fh0jEtPQX2OLMIA](https://github.com/user-attachments/assets/f09d780f-8d5c-46c2-b619-5acaea5bbdfd)
 ---
 
 ## Setup Instructions

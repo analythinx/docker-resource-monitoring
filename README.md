@@ -4,7 +4,9 @@
 
 This project provides a ready-to-use Docker Compose setup for system and container monitoring with **Prometheus**, **Grafana**, **cAdvisor**, and **Node Exporter**.
 
----
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/f09d780f-8d5c-46c2-b619-5acaea5bbdfd" alt="Image">
+</div>
 
 ## Features
 
@@ -12,11 +14,6 @@ This project provides a ready-to-use Docker Compose setup for system and contain
 - **Grafana**: Creates customizable dashboards for data visualization.
 - **cAdvisor**: Monitors container resource usage (CPU, memory, disk, and network).
 - **Node Exporter**: Collects system-level metrics (CPU, memory, disk, and more).
-
-<div align="center">
-    <img src="https://github.com/user-attachments/assets/f09d780f-8d5c-46c2-b619-5acaea5bbdfd" alt="Image">
-</div>
-
 ---
 
 ## Setup Instructions

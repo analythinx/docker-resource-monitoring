@@ -1,5 +1,6 @@
 
----
+---![1_OWrLfQ7fh0jEtPQX2OLMIA](https://github.com/user-attachments/assets/f09d780f-8d5c-46c2-b619-5acaea5bbdfd)
+
 
 # Monitoring Stack: Prometheus, Grafana, cAdvisor, Node Exporter
 
